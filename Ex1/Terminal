@@ -1,0 +1,15 @@
+cd Desktop\Tremend
+docker pull ubuntu:latest
+docker run -it --name my_linux_container ubuntu:latest
+docker start my_linux_container
+docker exec -it my_linux_container /bin/bash
+adduser john 
+id john 
+docker cp create_large_file.sh my_linux_container:/home
+docker cp script.sh my_linux_container:/home
+docker exec -it my_linux_container /bin/bash
+cd /home
+chmod +x script.sh
+tr -d '\r' < script.sh script_fixed.sh
+chmod +x script_fixed.sh
+./script_fixed.sh
